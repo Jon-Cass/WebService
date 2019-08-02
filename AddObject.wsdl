@@ -1,0 +1,71 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:blueprism:webservice:exposeobjecttest" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ExposeObjectTestService" targetNamespace="urn:blueprism:webservice:exposeobjecttest">
+<wsdl:types>
+<s:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="urn:blueprism:webservice:exposeobjecttest"/>
+</wsdl:types>
+<wsdl:message name="InitialiseRequest"/>
+<wsdl:message name="InitialiseResponse">
+<wsdl:part name="bpInstance" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="CleanUpRequest">
+<wsdl:part name="bpInstance" type="s:string"/>
+</wsdl:message>
+<wsdl:message name="CleanUpResponse"/>
+<wsdl:message name="AddRequest">
+<wsdl:part name="bpInstance" type="s:string"/>
+<wsdl:part name="A" type="s:decimal"/>
+<wsdl:part name="B" type="s:decimal"/>
+</wsdl:message>
+<wsdl:message name="AddResponse">
+<wsdl:part name="SUM" type="s:decimal"/>
+</wsdl:message>
+<wsdl:portType name="ExposeObjectTestPortType">
+<wsdl:operation name="Initialise">
+<wsdl:input message="tns:InitialiseRequest"/>
+<wsdl:output message="tns:InitialiseResponse"/>
+</wsdl:operation>
+<wsdl:operation name="CleanUp">
+<wsdl:input message="tns:CleanUpRequest"/>
+<wsdl:output message="tns:CleanUpResponse"/>
+</wsdl:operation>
+<wsdl:operation name="Add">
+<wsdl:input message="tns:AddRequest"/>
+<wsdl:output message="tns:AddResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="ExposeObjectTestSoapBinding" type="tns:ExposeObjectTestPortType">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="Initialise">
+<soap:operation soapAction="" style="rpc"/>
+<wsdl:input>
+<soap:body use="encoded" namespace="urn:blueprism:webservice:exposeobjecttest" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="encoded" namespace="urn:blueprism:webservice:exposeobjecttest" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="CleanUp">
+<soap:operation soapAction="" style="rpc"/>
+<wsdl:input>
+<soap:body use="encoded" namespace="urn:blueprism:webservice:exposeobjecttest" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="encoded" namespace="urn:blueprism:webservice:exposeobjecttest" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="Add">
+<soap:operation soapAction="" style="rpc"/>
+<wsdl:input>
+<soap:body use="encoded" namespace="urn:blueprism:webservice:exposeobjecttest" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="encoded" namespace="urn:blueprism:webservice:exposeobjecttest" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="ExposeObjectTestService">
+<wsdl:port name="ExposeObjectTestSoap" binding="tns:ExposeObjectTestSoapBinding">
+<soap:address location="http://DESKTOP-C98LHCM:8181/ws/ExposeObjectTest"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
